@@ -48,9 +48,11 @@ class NotebooksDB {
         notebooks.add(laptop18);
 
         Set<NotebookClass> uniqueNotebooks = new HashSet<>(notebooks);
-        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
-        System.out.println("* Добро пожаловать в магазин ноутбуков <<Чем богаты - тем и рады!>> *");
-        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+        System.out.println("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *");
+        System.out.println("*                                                                     *");
+        System.out.println("*  Добро пожаловать в магазин ноутбуков <<Чем богаты - тем и рады!>>  *");
+        System.out.println("*                                                                     *");
+        System.out.println("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *");
         System.out.println();
         System.out.printf("У нас в продаже %d ноутбуков.\n", notebooks.size());
         if (notebooks.size() > uniqueNotebooks.size()) {
@@ -59,33 +61,8 @@ class NotebooksDB {
         System.out.printf("Вы можете выбрать любой ноутбук из %d моделей.\n", uniqueNotebooks.size());
         System.out.println();
 
-        Map<Integer, String> mapFilter = new HashMap<>();
-        mapFilter.put(1, "объем оперативной памяти");
-        mapFilter.put(2, "диагональ экрана");
-        mapFilter.put(3, "размер накопителя");
-        mapFilter.put(4, "тип накопителя");
-        mapFilter.put(5, "ос");
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Введите желаемые характеристики:");
-        System.out.println("  1. объем оперативной памяти: ");
-        int ChoosenRAM = sc.nextInt();
-        System.out.println("  2. объем накопителя: ");
-        int ChoosenDrive = sc.nextInt();
-        System.out.println("  3. диагональ экрана");
-        double ChoosenDiag = sc.nextDouble();
-        int count = 0;
-        for (NotebookClass notebook : uniqueNotebooks) {
-            if ((notebook.getRam() >= ChoosenRAM) && (notebook.getDriveCap() >= ChoosenDrive) && notebook.getScreenSize() >= ChoosenDiag) {
-                count++;
-                if (count>0) {
-                    System.out.println();
-                    System.out.println("Вам подходят следующие модели:");
-                }
-                System.out.println(notebook.toString());
-            }
-        }
-        sc.close();
-        System.out.println();
+        UserFilter.userFilter(uniqueNotebooks);
+
         System.out.println("Свяжитесь с нашими менеджерами. Они обязательно помогут определиться с покупкой.");
         System.out.println("Телефон для связи: 8-(987)-654-32-10");
     }
