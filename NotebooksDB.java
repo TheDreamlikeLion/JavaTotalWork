@@ -46,8 +46,6 @@ class NotebooksDB {
         notebooks.add(laptop16);
         notebooks.add(laptop17);
         notebooks.add(laptop18);
-        notebooks.add(laptop19);
-        notebooks.add(laptop20);
 
         Set<NotebookClass> uniqueNotebooks = new HashSet<>(notebooks);
         System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
@@ -63,16 +61,17 @@ class NotebooksDB {
 
         Map<Integer, String> mapFilter = new HashMap<>();
         mapFilter.put(1, "объем оперативной памяти");
-        mapFilter.put(2, "объем накопителя");
-        mapFilter.put(3, "ОС");
-        mapFilter.put(4, "цвет");
-        mapFilter.put(5, "диагональ");
+        mapFilter.put(2, "диагональ экрана");
+        mapFilter.put(3, "размер накопителя");
+        mapFilter.put(4, "тип накопителя");
+        mapFilter.put(5, "ос");
         Scanner sc = new Scanner(System.in);
-        System.out.println("Введите желаемые характеристики: 1. объем оперативной памяти: ");
+        System.out.println("Введите желаемые характеристики:");
+        System.out.println("  1. объем оперативной памяти: ");
         int ChoosenRAM = sc.nextInt();
-        System.out.println("объем накопителя: ");
+        System.out.println("  2. объем накопителя: ");
         int ChoosenDrive = sc.nextInt();
-        System.out.println("диагональ");
+        System.out.println("  3. диагональ экрана");
         double ChoosenDiag = sc.nextDouble();
         int count = 0;
         for (NotebookClass notebook : uniqueNotebooks) {
